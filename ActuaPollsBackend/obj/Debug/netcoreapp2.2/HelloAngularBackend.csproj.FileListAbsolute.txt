@@ -1,0 +1,14 @@
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\HelloAngularBackend.deps.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\HelloAngularBackend.runtimeconfig.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\HelloAngularBackend.runtimeconfig.dev.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\HelloAngularBackend.dll
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\HelloAngularBackend.pdb
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.csprojAssemblyReference.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.csproj.CoreCompileInputs.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.RazorAssemblyInfo.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.RazorAssemblyInfo.cs
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.AssemblyInfoInputs.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.AssemblyInfo.cs
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.RazorTargetAssemblyInfo.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.dll
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\HelloAngularBackend\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\HelloAngularBackend.pdb

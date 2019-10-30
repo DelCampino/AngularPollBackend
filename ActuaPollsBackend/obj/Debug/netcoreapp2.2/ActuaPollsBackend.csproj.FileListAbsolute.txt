@@ -1,0 +1,13 @@
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\ActuaPollsBackend.deps.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\ActuaPollsBackend.runtimeconfig.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\ActuaPollsBackend.runtimeconfig.dev.json
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\ActuaPollsBackend.dll
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\bin\Debug\netcoreapp2.2\ActuaPollsBackend.pdb
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.csproj.CoreCompileInputs.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.RazorAssemblyInfo.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.RazorAssemblyInfo.cs
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.AssemblyInfoInputs.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.AssemblyInfo.cs
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.RazorTargetAssemblyInfo.cache
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.dll
+D:\OneDrive TM\OneDrive - Thomas More(1)\Thomas More\3 ITF\Angular\ActuaPolls\HelloAngularBackend\HelloAngularBackend\obj\Debug\netcoreapp2.2\ActuaPollsBackend.pdb

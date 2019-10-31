@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HelloAngularBackend.Models;
-using HelloAngularBackend.Services;
+using ActuaPollsBackend.Models;
+using ActuaPollsBackend.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HelloAngularBackend.Controllers
+namespace ActuaPollsBackend.Controllers
 {
     [Route("api/[controller]")]
     public class UserController : Controller

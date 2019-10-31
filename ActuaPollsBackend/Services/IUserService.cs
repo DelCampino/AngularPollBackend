@@ -1,10 +1,10 @@
-﻿using HelloAngularBackend.Models;
+﻿using ActuaPollsBackend.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HelloAngularBackend.Services
+namespace ActuaPollsBackend.Services
 {
     public interface IUserService
     {

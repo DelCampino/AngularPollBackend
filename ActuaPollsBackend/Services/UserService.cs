@@ -1,5 +1,5 @@
-﻿using HelloAngularBackend.Helpers;
-using HelloAngularBackend.Models;
+﻿using ActuaPollsBackend.Helpers;
+using ActuaPollsBackend.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -10,14 +10,14 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloAngularBackend.Services
+namespace ActuaPollsBackend.Services
 {
     public class UserService : IUserService
     {
         private readonly AppSettings _appSettings;
-        private readonly MemberContext _memberContext;
+        private readonly PollsContext _memberContext;
 
-        public UserService(IOptions<AppSettings> appSettings, MemberContext memberContext)
+        public UserService(IOptions<AppSettings> appSettings, PollsContext memberContext)
         {
             _appSettings = appSettings.Value;
             _memberContext = memberContext;

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HelloAngularBackend.Helpers;
-using HelloAngularBackend.Models;
-using HelloAngularBackend.Services;
+using ActuaPollsBackend.Helpers;
+using ActuaPollsBackend.Models;
+using ActuaPollsBackend.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,7 +19,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace HelloAngularBackend
+namespace ActuaPollsBackend
 {
     public class Startup
     {
@@ -63,7 +63,7 @@ namespace HelloAngularBackend
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
-            services.AddDbContext<MemberContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<PollsContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
@@ -85,7 +85,7 @@ namespace HelloAngularBackend
 
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, MemberContext context)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, PollsContext context)
         {
             if (env.IsDevelopment())
             {

@@ -11,6 +11,7 @@ namespace ActuaPollsBackend.Controllers
     [Route("api/[controller]")]
     public class UserController : Controller
     {
+        private readonly PollsContext _context;
         private IUserService _userService;
         public UserController(IUserService userService)
         {
@@ -20,12 +21,26 @@ namespace ActuaPollsBackend.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]User userParam)
         {
-            var user = _userService.Authenticate(userParam.Username, userParam.Password);
+            var user = _userService.Authenticate(userParam.Email, userParam.Password);
 
             if (user == null)
-                return BadRequest(new { message = "Username or password is incorrect" });
+                return BadRequest(new { message = "Email or password is incorrect" });
 
             return Ok(user);
+        }
+
+        [HttpPost("register")]
+        public IActionResult Register([FromBody]User userParam)
+        {
+            String status = _userService.Register(userParam.Username, userParam.Email, userParam.Password);
+
+            if (status == "username")
+                return Ok(new { message = "username" });
+
+            if (status == "email")
+                return Ok(new { message = "email" });
+
+            return Ok(new { message = "succes" });
         }
     }
 }

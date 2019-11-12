@@ -9,9 +9,9 @@ namespace ActuaPollsBackend.Models
 {
     public class PollUser
     {
-        [Key, Column(Order = 1)]
+        public long PollUserID { get; set; }
         public long UserID { get; set; }
-        [Key, Column(Order = 2)]
+
         public long PollID { get; set; }
 
         public Poll Poll { get; set; }

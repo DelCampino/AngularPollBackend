@@ -23,7 +23,7 @@ namespace ActuaPollsBackend.Models
             //modelBuilder.Entity<User>().ToTable("User");
 
             modelBuilder.Entity<PollUser>()
-                .HasKey(x => new { x.UserID, x.PollID });
+                .HasKey(x => x.PollUserID);
 
             modelBuilder.Entity<PollUser>()
                 .HasOne(x => x.User)

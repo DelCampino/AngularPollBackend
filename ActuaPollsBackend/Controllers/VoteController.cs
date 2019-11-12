@@ -11,46 +11,46 @@ namespace ActuaPollsBackend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StemController : ControllerBase
+    public class VoteController : ControllerBase
     {
         private readonly PollsContext _context;
 
-        public StemController(PollsContext context)
+        public VoteController(PollsContext context)
         {
             _context = context;
         }
 
-        // GET: api/Stem
+        // GET: api/Vote
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Stem>>> GetStem()
+        public async Task<ActionResult<IEnumerable<Vote>>> GetVotes()
         {
-            return await _context.Stem.ToListAsync();
+            return await _context.Votes.ToListAsync();
         }
 
-        // GET: api/Stem/5
+        // GET: api/Vote/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Stem>> GetStem(long id)
+        public async Task<ActionResult<Vote>> GetVote(long id)
         {
-            var stem = await _context.Stem.FindAsync(id);
+            var vote = await _context.Votes.FindAsync(id);
 
-            if (stem == null)
+            if (vote == null)
             {
                 return NotFound();
             }
 
-            return stem;
+            return vote;
         }
 
-        // PUT: api/Stem/5
+        // PUT: api/Vote/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutStem(long id, Stem stem)
+        public async Task<IActionResult> PutVote(long id, Vote vote)
         {
-            if (id != stem.StemID)
+            if (id != vote.VoteID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(stem).State = EntityState.Modified;
+            _context.Entry(vote).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace ActuaPollsBackend.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!StemExists(id))
+                if (!VoteExists(id))
                 {
                     return NotFound();
                 }
@@ -71,35 +71,35 @@ namespace ActuaPollsBackend.Controllers
             return NoContent();
         }
 
-        // POST: api/Stem
+        // POST: api/Vote
         [HttpPost]
-        public async Task<ActionResult<Stem>> PostStem(Stem stem)
+        public async Task<ActionResult<Vote>> PostVote(Vote vote)
         {
-            _context.Stem.Add(stem);
+            _context.Votes.Add(vote);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStem", new { id = stem.StemID }, stem);
+            return CreatedAtAction("GetVote", new { id = vote.VoteID }, vote);
         }
 
-        // DELETE: api/Stem/5
+        // DELETE: api/Vote/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Stem>> DeleteStem(long id)
+        public async Task<ActionResult<Vote>> DeleteVote(long id)
         {
-            var stem = await _context.Stem.FindAsync(id);
-            if (stem == null)
+            var vote = await _context.Votes.FindAsync(id);
+            if (vote == null)
             {
                 return NotFound();
             }
 
-            _context.Stem.Remove(stem);
+            _context.Votes.Remove(vote);
             await _context.SaveChangesAsync();
 
-            return stem;
+            return vote;
         }
 
-        private bool StemExists(long id)
+        private bool VoteExists(long id)
         {
-            return _context.Stem.Any(e => e.StemID == id);
+            return _context.Votes.Any(e => e.VoteID == id);
         }
     }
 }

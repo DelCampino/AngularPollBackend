@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -22,15 +21,18 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Poll
-        [Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Poll>>> GetPoll()
+        public async Task<ActionResult<IEnumerable<Poll>>> GetPolls()
         {
-            return await _context.Polls.ToListAsync();
+            return await _context.Polls
+                .Include(p => p.Participants)
+                .ThenInclude(participants => participants.User)
+                .Include(a => a.Answers)
+                .ThenInclude(answers => answers.Votes)
+                .ToListAsync();
         }
 
         // GET: api/Poll/5
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Poll>> GetPoll(long id)
         {
@@ -45,7 +47,6 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/Poll/5
-        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPoll(long id, Poll poll)
         {
@@ -76,10 +77,10 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/Poll
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Poll>> PostPoll(Poll poll)
         {
+
             _context.Polls.Add(poll);
             await _context.SaveChangesAsync();
 
@@ -87,7 +88,6 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/Poll/5
-        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Poll>> DeletePoll(long id)
         {

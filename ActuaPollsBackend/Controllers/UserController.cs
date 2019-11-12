@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ActuaPollsBackend.Models;
 using ActuaPollsBackend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ActuaPollsBackend.Controllers
@@ -35,12 +36,29 @@ namespace ActuaPollsBackend.Controllers
             String status = _userService.Register(userParam.Username, userParam.Email, userParam.Password);
 
             if (status == "username")
-                return Ok(new { message = "username" });
+                return BadRequest(new { message = "username taken" });
 
             if (status == "email")
-                return Ok(new { message = "email" });
+                return BadRequest(new { message = "email taken" });
 
             return Ok(new { message = "succes" });
         }
+
+        // GET: api/Vote/5
+        [Authorize]
+        [HttpGet("{id}")]
+        public async Task<ActionResult<User>> GetUser(long id)
+        {
+            var user = await _context.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
+
+
     }
 }

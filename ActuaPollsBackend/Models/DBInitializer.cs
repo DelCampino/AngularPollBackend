@@ -19,15 +19,20 @@ namespace ActuaPollsBackend.Models
             context.Users.AddRange(
                 new User { Username = "test", Password = "test", Email = "test.test@thomasmore.be"});
 
+            context.Users.AddRange(
+                new User { Username = "a", Password = "azerty", Email = "a@a.a" });
+
+            context.Users.AddRange(
+                new User
+                {
+                    Email = "b@b.b",
+                    Username = "bbbbbb",
+                    Password = "azerty",
+                });
+
             context.Polls.AddRange(
                 new Poll { Name = "test" });
 
-            var testUser = new User
-            {
-                Email = "a@a.a",
-                Username = "aaaaaa",
-                Password = "azerty",
-            };
 
             var testPoll = new Poll
             {
@@ -36,7 +41,6 @@ namespace ActuaPollsBackend.Models
             
 
             context.Polls.Add(testPoll);
-            context.Users.Add(testUser);
             context.SaveChanges();
         }
     }

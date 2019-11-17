@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
 using ActuaPollsBackend.Services;
+using ActuaPollsBackend.Models.Dto;
 
 namespace ActuaPollsBackend.Controllers
 {

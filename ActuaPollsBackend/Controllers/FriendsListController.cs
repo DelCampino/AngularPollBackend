@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
+using System.Security.Claims;
+using ActuaPollsBackend.Models.Dto;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -102,8 +104,54 @@ namespace ActuaPollsBackend.Controllers
             return _context.FriendsList.Any(e => e.FriendsListID == id);
         }
 
+        // POST: api/addFriend/5
+        [HttpPost("addFriendrequest")]
+        public async Task<ActionResult<FriendsList>> addFriendrequest([FromBody]FriendsList_Friendrequest param)
+        {
+            var friend = _context.Users
+                .Where(x => x.Email == param.Email)
+                .FirstOrDefault();
+            if (friend == null)
+            {
+                return BadRequest(new { message = "Email not found" });
+            }
+
+            if (param.UserID == friend.UserID)
+            {
+                return BadRequest(new { message = "Cannot add yourself" });
+            }
+
+            var friendsList =  _context.FriendsList
+                .Where(x => x.UserID == param.UserID)
+                .Where(x => x.FriendID == friend.UserID)
+                .FirstOrDefault();
+
+            if (friendsList != null)
+            {
+                if (friendsList.Status == false)
+                {
+                    return BadRequest(new { message = "Already exists" });
+                }
+                else
+                {
+                    return BadRequest(new { message = "Already friends" });
+                }
+            }
+
+            var friendRequest = new FriendsList
+            {
+                UserID = param.UserID,
+                FriendID = friend.UserID
+            };
+
+            _context.FriendsList.Add(friendRequest);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetFriendsList", new { id = friendRequest.FriendsListID }, friendRequest);
+        }
+
         // PUT: api/ConfirmRequest/5
-        [HttpPut("confirm/{id}")]
+        [HttpGet("confirm/{id}")]
         public async Task<IActionResult> ConfirmRequest(long id)
         {
             var friendsList = await _context.FriendsList.FindAsync(id);
@@ -137,5 +185,30 @@ namespace ActuaPollsBackend.Controllers
 
             return NoContent();
         }
+
+        // GET: api/FriendsList/Friendrequests/5
+        [HttpGet("Friendrequests/{id}")]
+        public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriendRequests(long id)
+        {
+            var friendrequests = _context.FriendsList
+                .Where(fl => (fl.FriendID == id) && (fl.Status == false))
+                .Include(fl => fl.User)
+                .ToListAsync();
+
+            return await friendrequests;
+        }
+
+        // GET: api/FriendsList/5
+        [HttpGet("Friends/{id}")]
+        public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriends(long id)
+        {
+            var friends = _context.FriendsList
+                .Where(fl => (fl.FriendID == id) && (fl.Status == true))
+                .Include(fl => fl.User)
+                .ToListAsync();
+
+            return await friends;
+        }
+
     }
 }

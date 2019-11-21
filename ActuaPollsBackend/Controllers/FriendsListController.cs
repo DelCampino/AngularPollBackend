@@ -203,8 +203,9 @@ namespace ActuaPollsBackend.Controllers
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriends(long id)
         {
             var friends = _context.FriendsList
-                .Where(fl => (fl.FriendID == id) && (fl.Status == true))
                 .Include(fl => fl.User)
+                .Include(fl => fl.Friend)
+                .Where(fl => (fl.FriendID == id) && (fl.Status == true) || (fl.UserID == id) && (fl.Status == true))
                 .ToListAsync();
 
             return await friends;

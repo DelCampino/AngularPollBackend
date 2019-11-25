@@ -17,30 +17,24 @@ namespace ActuaPollsBackend.Models
             }
 
             context.Users.AddRange(
-                new User { Username = "test", Password = "test", Email = "test.test@thomasmore.be"});
+                new User { Username = "Sacha", Password = "test", Email = "sacha@thomasmore.be"});
 
             context.Users.AddRange(
-                new User { Username = "a", Password = "azerty", Email = "a@a.a" });
+                new User { Username = "Brecht", Password = "test", Email = "brecht@thomasmore.be" });
 
             context.Users.AddRange(
-                new User
-                {
-                    Email = "b@b.b",
-                    Username = "bbbbbb",
-                    Password = "azerty",
-                });
+                new User { Username = "Boszie", Password = "test", Email = "boszie@thomasmore.be" });
 
-            context.Polls.AddRange(
-                new Poll { Name = "test" });
+            context.Users.AddRange(
+                new User { Username = "Wannes", Password = "test", Email = "wannes@thomasmore.be" });
+
+            context.Users.AddRange(
+                new User { Username = "Nerissa", Password = "test", Email = "nerissa@thomasmore.be" });
+
+            context.Users.AddRange(
+                new User { Username = "Mathias", Password = "test", Email = "mathias@thomasmore.be" });
 
 
-            var testPoll = new Poll
-            {
-                Name = "testPoll"
-            };
-            
-
-            context.Polls.Add(testPoll);
             context.SaveChanges();
         }
     }

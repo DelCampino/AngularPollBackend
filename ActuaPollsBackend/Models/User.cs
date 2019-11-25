@@ -14,7 +14,7 @@ namespace ActuaPollsBackend.Models
         public string Password { get; set; }
         [NotMapped]
         public string Token { get; set; }
-        public ICollection<PollUser> CreatedPolls { get; set; }
+        public ICollection<PollUser> MyPolls { get; set; }
         public ICollection<FriendsList> RequestSend { get; set; }
         public ICollection<FriendsList> RequestGotten { get; set; }
     }

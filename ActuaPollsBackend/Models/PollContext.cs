@@ -28,7 +28,7 @@ namespace ActuaPollsBackend.Models
 
             modelBuilder.Entity<PollUser>()
                 .HasOne(x => x.User)
-                .WithMany(y => y.CreatedPolls)
+                .WithMany(y => y.MyPolls)
                 .HasForeignKey(y => y.UserID)
                 .OnDelete(DeleteBehavior.Restrict);
 

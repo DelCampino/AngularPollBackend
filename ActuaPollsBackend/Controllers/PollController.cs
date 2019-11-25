@@ -36,7 +36,13 @@ namespace ActuaPollsBackend.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Poll>> GetPoll(long id)
         {
-            var poll = await _context.Polls.FindAsync(id);
+            var poll = await _context.Polls
+                .Where(p => p.PollID == id)
+                .Include(p => p.Participants)
+                .ThenInclude(participants => participants.User)
+                .Include(a => a.Answers)
+                .ThenInclude(answers => answers.Votes)
+                .SingleOrDefaultAsync();
 
             if (poll == null)
             {
@@ -106,6 +112,19 @@ namespace ActuaPollsBackend.Controllers
         private bool PollExists(long id)
         {
             return _context.Polls.Any(e => e.PollID == id);
+        }
+
+        // GET: api/Polls/CreatedPolls/5
+        [HttpGet("CreatedPolls/{id}")]
+        public async Task<ActionResult<IEnumerable<Poll>>> GetCreatedPolls(long id)
+        {
+            return await _context.Polls
+                .Where(p => p.CreatorID == id)
+                .Include(p => p.Participants)
+                .ThenInclude(participants => participants.User)
+                .Include(a => a.Answers)
+                .ThenInclude(answers => answers.Votes)
+                .ToListAsync();
         }
     }
 }

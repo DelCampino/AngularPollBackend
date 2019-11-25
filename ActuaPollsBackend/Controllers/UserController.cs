@@ -135,5 +135,28 @@ namespace ActuaPollsBackend.Controllers
         {
             return _context.Users.Any(e => e.UserID == id);
         }
+
+        // GET: api/Users/UserWithPolls/5
+        [HttpGet("UserWithPolls/{id}")]
+        public ActionResult<User> GetUserWithPolls(long id)
+        {
+            var user = _context.Users
+                .Where(u => u.UserID == id)
+                .Include(u => u.MyPolls)
+                .ThenInclude(myPolls => myPolls.Poll)
+                .ThenInclude(poll => poll.Answers)
+                .ThenInclude(answers => answers.Votes)
+                .Include(u => u.MyPolls)
+                .ThenInclude(myPolls => myPolls.Poll)
+                .ThenInclude(poll => poll.Participants)
+                .SingleOrDefault();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
+        }
     }
 }

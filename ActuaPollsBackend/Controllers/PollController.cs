@@ -126,5 +126,12 @@ namespace ActuaPollsBackend.Controllers
                 .ThenInclude(answers => answers.Votes)
                 .ToListAsync();
         }
+
+        // GET: api/Vote
+        [HttpGet("count")]
+        public async Task<int> GetPollsCount()
+        {
+            return _context.Polls.Count();
+        }
     }
 }

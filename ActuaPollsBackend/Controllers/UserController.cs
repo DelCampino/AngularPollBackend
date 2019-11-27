@@ -158,5 +158,12 @@ namespace ActuaPollsBackend.Controllers
 
             return user;
         }
+
+        // GET: api/Vote
+        [HttpGet("count")]
+        public async Task<int> GetUsersCount()
+        {
+            return _context.Users.Count();
+        }
     }
 }

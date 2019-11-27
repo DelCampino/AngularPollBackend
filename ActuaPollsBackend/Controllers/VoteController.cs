@@ -101,5 +101,12 @@ namespace ActuaPollsBackend.Controllers
         {
             return _context.Votes.Any(e => e.VoteID == id);
         }
+
+        // GET: api/Vote
+        [HttpGet("count")]
+        public async Task<int> GetVotesCount()
+        {
+            return _context.Votes.Count();
+        }
     }
 }

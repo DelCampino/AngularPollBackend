@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
 using ActuaPollsBackend.Services;
 using ActuaPollsBackend.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -51,6 +52,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Users
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
@@ -61,6 +63,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Users/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(long id)
         {
@@ -76,6 +79,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/Users/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(long id, User user)
         {
@@ -106,6 +110,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/Users
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
@@ -115,6 +120,7 @@ namespace ActuaPollsBackend.Controllers
             return CreatedAtAction("GetUser", new { id = user.UserID }, user);
         }
 
+        [Authorize]
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<User>> DeleteUser(long id)
@@ -131,6 +137,7 @@ namespace ActuaPollsBackend.Controllers
             return user;
         }
 
+        [Authorize]
         private bool UserExists(long id)
         {
             return _context.Users.Any(e => e.UserID == id);
@@ -138,6 +145,7 @@ namespace ActuaPollsBackend.Controllers
 
         // GET: api/Users/UserWithPolls/5
         // GET methode om user met polls op te halen waar deze in deelneemt.
+        [Authorize]
         [HttpGet("UserWithPolls/{id}")]
         public ActionResult<User> GetUserWithPolls(long id)
         {
@@ -160,7 +168,8 @@ namespace ActuaPollsBackend.Controllers
             return user;
         }
 
-        // GET: api/Vote
+        // GET: api/Users
+        [Authorize]
         [HttpGet("count")]
         public async Task<int> GetUsersCount()
         {

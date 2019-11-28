@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -21,6 +22,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Poll
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Poll>>> GetPolls()
         {
@@ -33,6 +35,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Poll/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Poll>> GetPoll(long id)
         {
@@ -53,6 +56,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/Poll/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPoll(long id, Poll poll)
         {
@@ -83,6 +87,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/Poll
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Poll>> PostPoll(Poll poll)
         {
@@ -94,6 +99,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/Poll/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Poll>> DeletePoll(long id)
         {
@@ -109,12 +115,14 @@ namespace ActuaPollsBackend.Controllers
             return poll;
         }
 
+        [Authorize]
         private bool PollExists(long id)
         {
             return _context.Polls.Any(e => e.PollID == id);
         }
 
         // GET: api/Polls/CreatedPolls/5
+        [Authorize]
         [HttpGet("CreatedPolls/{id}")]
         public async Task<ActionResult<IEnumerable<Poll>>> GetCreatedPolls(long id)
         {
@@ -127,7 +135,8 @@ namespace ActuaPollsBackend.Controllers
                 .ToListAsync();
         }
 
-        // GET: api/Vote
+        // GET: api/Polls
+        [Authorize]
         [HttpGet("count")]
         public async Task<int> GetPollsCount()
         {

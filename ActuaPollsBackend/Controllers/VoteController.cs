@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -21,6 +22,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Vote
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vote>>> GetVotes()
         {
@@ -28,6 +30,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Vote/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Vote>> GetVote(long id)
         {
@@ -42,6 +45,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/Vote/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVote(long id, Vote vote)
         {
@@ -72,6 +76,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/Vote
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Vote>> PostVote(Vote vote)
         {
@@ -82,6 +87,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/Vote/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Vote>> DeleteVote(long id)
         {
@@ -103,6 +109,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Vote
+        [Authorize]
         [HttpGet("count")]
         public async Task<int> GetVotesCount()
         {

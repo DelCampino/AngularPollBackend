@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -21,6 +22,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Answer
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()
         {
@@ -28,6 +30,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Answer/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<Answer>> GetAnswer(long id)
         {
@@ -42,6 +45,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/Answer/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAnswer(long id, Answer answer)
         {
@@ -71,7 +75,9 @@ namespace ActuaPollsBackend.Controllers
             return NoContent();
         }
 
+
         // POST: api/Answer
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<Answer>> PostAnswer(Answer answer)
         {
@@ -82,6 +88,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/Answer/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Answer>> DeleteAnswer(long id)
         {
@@ -97,6 +104,7 @@ namespace ActuaPollsBackend.Controllers
             return answer;
         }
 
+        [Authorize]
         private bool AnswerExists(long id)
         {
             return _context.Answers.Any(e => e.AnswerID == id);

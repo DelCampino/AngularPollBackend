@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
 using System.Security.Claims;
 using ActuaPollsBackend.Models.Dto;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -23,6 +24,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/FriendsList
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriendsList()
         {
@@ -30,6 +32,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/FriendsList/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<FriendsList>> GetFriendsList(long id)
         {
@@ -44,6 +47,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/FriendsList/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFriendsList(long id, FriendsList friendsList)
         {
@@ -74,6 +78,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/FriendsList
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<FriendsList>> PostFriendsList(FriendsList friendsList)
         {
@@ -84,6 +89,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/FriendsList/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<FriendsList>> DeleteFriendsList(long id)
         {
@@ -99,12 +105,14 @@ namespace ActuaPollsBackend.Controllers
             return friendsList;
         }
 
+        [Authorize]
         private bool FriendsListExists(long id)
         {
             return _context.FriendsList.Any(e => e.FriendsListID == id);
         }
 
         // POST: api/addFriend/5
+        [Authorize]
         [HttpPost("addFriendrequest")]
         public async Task<ActionResult<FriendsList>> addFriendrequest([FromBody]FriendsList_Friendrequest param)
         {
@@ -151,6 +159,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/ConfirmRequest/5
+        [Authorize]
         [HttpGet("confirm/{id}")]
         public async Task<IActionResult> ConfirmRequest(long id)
         {
@@ -188,6 +197,7 @@ namespace ActuaPollsBackend.Controllers
 
         // GET: api/FriendsList/Friendrequests/5
         // GET methode om niet-geaccepteerde vriendenrequests op te halen van een specifieke user.
+        [Authorize]
         [HttpGet("Friendrequests/{id}")]
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriendRequests(long id)
         {
@@ -201,6 +211,7 @@ namespace ActuaPollsBackend.Controllers
 
         // GET: api/FriendsList/5
         // GET methode om een vriendenlijst van een specifieke user op te halen.
+        [Authorize]
         [HttpGet("Friends/{id}")]
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriends(long id)
         {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ActuaPollsBackend.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ActuaPollsBackend.Controllers
 {
@@ -21,6 +22,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/PollUser
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PollUser>>> GetPollUsers()
         {
@@ -28,6 +30,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/PollUser/5
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<PollUser>> GetPollUser(long id)
         {
@@ -42,6 +45,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // PUT: api/PollUser/5
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPollUser(long id, PollUser pollUser)
         {
@@ -72,6 +76,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // POST: api/PollUser
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<PollUser>> PostPollUser(PollUser pollUser)
         {
@@ -82,6 +87,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // DELETE: api/PollUser/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<ActionResult<PollUser>> DeletePollUser(long id)
         {
@@ -97,6 +103,7 @@ namespace ActuaPollsBackend.Controllers
             return pollUser;
         }
 
+        [Authorize]
         private bool PollUserExists(long id)
         {
             return _context.PollUsers.Any(e => e.PollUserID == id);

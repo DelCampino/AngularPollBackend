@@ -187,6 +187,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/FriendsList/Friendrequests/5
+        // GET methode om niet-geaccepteerde vriendenrequests op te halen van een specifieke user.
         [HttpGet("Friendrequests/{id}")]
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriendRequests(long id)
         {
@@ -199,6 +200,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/FriendsList/5
+        // GET methode om een vriendenlijst van een specifieke user op te halen.
         [HttpGet("Friends/{id}")]
         public async Task<ActionResult<IEnumerable<FriendsList>>> GetFriends(long id)
         {

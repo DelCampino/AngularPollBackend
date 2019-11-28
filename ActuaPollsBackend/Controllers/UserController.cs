@@ -137,6 +137,7 @@ namespace ActuaPollsBackend.Controllers
         }
 
         // GET: api/Users/UserWithPolls/5
+        // GET methode om user met polls op te halen waar deze in deelneemt.
         [HttpGet("UserWithPolls/{id}")]
         public ActionResult<User> GetUserWithPolls(long id)
         {
